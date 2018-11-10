@@ -1,25 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parse_file.c                                       :+:      :+:    :+:   */
+/*   count_spaces.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mshkliai <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/07/28 10:56:39 by mshkliai          #+#    #+#             */
-/*   Updated: 2018/07/31 13:19:57 by mshkliai         ###   ########.fr       */
+/*   Created: 2018/07/28 17:54:40 by mshkliai          #+#    #+#             */
+/*   Updated: 2018/07/31 19:21:46 by mshkliai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "list_ls.h"
+#include "../inc/list_ls.h"
 
-void	parse_file(t_stat info, char *name, t_file **files)
+int	count_spaces(int num)
 {
-	mode_t	m;
+	int	num2;
+	int	space;
 
-	m = info.st_mode;
-	if (S_ISCHR(m) || S_ISBLK(m) || S_ISREG(m) || S_ISFIFO(m) ||
-			S_ISSOCK(m) || S_ISLNK(m))
-		add_file(files, name);
-	else
-		out_error(2, name);
+	space = 1;
+	num2 = num;
+	while (num2 /= 10)
+		space++;
+	return (space);
 }

@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "list_ls.h"
+#include "../inc/list_ls.h"
 
 static void	by_name(t_file **files)
 {

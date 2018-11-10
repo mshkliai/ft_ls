@@ -13,7 +13,7 @@
 #ifndef LIST_LS_H
 # define LIST_LS_H
 
-# include "./printf/libftprintf.h"
+# include "../printf/libftprintf.h"
 
 # include <dirent.h>
 # include <sys/types.h>

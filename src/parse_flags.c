@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "list_ls.h"
+#include "../inc/list_ls.h"
 
 static void	print_usage(char c)
 {

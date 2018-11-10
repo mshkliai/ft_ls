@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "list_ls.h"
+#include "../inc/list_ls.h"
 
 static int	max_nlink(t_file *file)
 {

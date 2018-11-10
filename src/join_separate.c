@@ -1,28 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   size_list.c                                        :+:      :+:    :+:   */
+/*   join_separate.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mshkliai <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/07/31 13:34:56 by mshkliai          #+#    #+#             */
-/*   Updated: 2018/07/31 13:35:43 by mshkliai         ###   ########.fr       */
+/*   Created: 2018/07/24 18:21:12 by mshkliai          #+#    #+#             */
+/*   Updated: 2018/07/31 17:31:35 by mshkliai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "list_ls.h"
+#include "../inc/list_ls.h"
 
-int	size_list(t_file *files)
+char	*join_separate(char *line, char *line2, char separate)
 {
-	t_file	*start;
-	int		size;
+	char	*start;
+	char	*end;
+	int		i;
 
-	size = 0;
-	start = files;
-	while (start)
+	i = -1;
+	end = ft_strnew(ft_strlen(line) + ft_strlen(line2) + 1);
+	start = line;
+	while (*start)
 	{
-		size++;
-		start = start->next;
+		end[++i] = *start;
+		start++;
 	}
-	return (size);
+	if (ft_strcmp(line, "/"))
+		end[++i] = separate;
+	start = line2;
+	while (*start)
+	{
+		end[++i] = *start;
+		start++;
+	}
+	return (end);
 }

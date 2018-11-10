@@ -1,25 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   len_name.c                                         :+:      :+:    :+:   */
+/*   out_error.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mshkliai <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/07/25 16:37:27 by mshkliai          #+#    #+#             */
-/*   Updated: 2018/07/28 12:26:43 by mshkliai         ###   ########.fr       */
+/*   Created: 2018/07/31 12:45:10 by mshkliai          #+#    #+#             */
+/*   Updated: 2018/07/31 17:39:02 by mshkliai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "list_ls.h"
+#include "../inc/list_ls.h"
 
-int	len_name(char *name)
+void	out_error(int num, char *name)
 {
-	char	*start;
+	int	i;
 
-	start = name + ft_strlen(name) - 1;
-	while (*start && *start != '/')
-		start--;
-	if (!ft_strlen(start))
-		return (ft_strlen(name) + 1);
-	return (ft_strlen(start));
+	i = ft_strlen(name) - len_name(name) + 1;
+	if (num == 1)
+	{
+		write(2, "ft_ls: ", 7);
+		write(2, name + i, ft_strlen(name + i));
+		write(2, ": Permission denied\n", 20);
+	}
+	else if (num == 2)
+	{
+		write(2, "ft_ls: ", 7);
+		write(2, name, ft_strlen(name));
+		write(2, ": No such file or directory\n", 28);
+	}
 }

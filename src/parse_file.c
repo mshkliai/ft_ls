@@ -1,17 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   global_vars.c                                      :+:      :+:    :+:   */
+/*   parse_file.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mshkliai <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/07/25 12:34:38 by mshkliai          #+#    #+#             */
-/*   Updated: 2018/07/30 17:00:22 by mshkliai         ###   ########.fr       */
+/*   Created: 2018/07/28 10:56:39 by mshkliai          #+#    #+#             */
+/*   Updated: 2018/07/31 13:19:57 by mshkliai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "list_ls.h"
+#include "../inc/list_ls.h"
 
-char	g_flags[9];
-int		g_deep = -1;
-int		g_format = 0;
+void	parse_file(t_stat info, char *name, t_file **files)
+{
+	mode_t	m;
+
+	m = info.st_mode;
+	if (S_ISCHR(m) || S_ISBLK(m) || S_ISREG(m) || S_ISFIFO(m) ||
+			S_ISSOCK(m) || S_ISLNK(m))
+		add_file(files, name);
+	else
+		out_error(2, name);
+}

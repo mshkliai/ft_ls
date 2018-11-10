@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "list_ls.h"
+#include "../inc/list_ls.h"
 
 static void	print_info(t_file *all_files, t_file **new_dir, t_file *directory)
 {

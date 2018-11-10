@@ -20,9 +20,11 @@ SRC = add_file.c bubble.c count_spaces.c flag_l.c formating.c get_end.c \
 	  sorting_mass.c out_error.c size_list.c ft_swap.c \
 	  read_link.c max_space.c max_space_size.c
 
+S_SRC = $(addprefix ./src/, $(SRC))
+
 FLAGS = -Wall -Werror -Wextra
 
-OBJ = $(SRC:.c=.o)
+OBJ = $(S_SRC:.c=.o)
 
 PRINTF = ./printf/libftprintf.a
 

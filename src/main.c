@@ -1,34 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   list_del.c                                         :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mshkliai <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/07/26 17:16:52 by mshkliai          #+#    #+#             */
-/*   Updated: 2018/08/01 11:27:00 by mshkliai         ###   ########.fr       */
+/*   Created: 2018/07/23 11:35:07 by mshkliai          #+#    #+#             */
+/*   Updated: 2018/08/01 13:22:17 by mshkliai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "list_ls.h"
+#include "../inc/list_ls.h"
 
-void	list_del(t_file *list)
+int	main(int ac, char **av)
 {
-	t_file	*start;
+	int		i;
 
-	start = list;
-	while (start->next)
-	{
-		ft_strdel(&start->name);
-		ft_strdel(&start->pass);
-		ft_strdel(&start->group);
-		if (start->prev)
-			free(start->prev);
-		start = start->next;
-	}
-	free(start->prev);
-	ft_strdel(&start->name);
-	ft_strdel(&start->pass);
-	ft_strdel(&start->group);
-	free(start);
+	i = 0;
+	if (ac > 1)
+		parse_flags(av, &i, g_flags);
+	if (!i)
+		i = 1;
+	if (!av[i])
+		ls_end(0);
+	else
+		ls_end(av + i);
+	return (0);
 }

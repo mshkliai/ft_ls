@@ -1,25 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   count_spaces.c                                     :+:      :+:    :+:   */
+/*   read_link.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mshkliai <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/07/28 17:54:40 by mshkliai          #+#    #+#             */
-/*   Updated: 2018/07/31 19:21:46 by mshkliai         ###   ########.fr       */
+/*   Created: 2018/07/31 18:02:35 by mshkliai          #+#    #+#             */
+/*   Updated: 2018/07/31 18:03:35 by mshkliai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "list_ls.h"
+#include "../inc/list_ls.h"
 
-int	count_spaces(int num)
+void	read_link(char *name, char *buff)
 {
-	int	num2;
-	int	space;
+	int		i;
 
-	space = 1;
-	num2 = num;
-	while (num2 /= 10)
-		space++;
-	return (space);
+	buff[0] = 0;
+	readlink(name, buff, 1024);
+	i = 0;
+	while (buff[i] && (ft_isdigit(buff[i]) || ft_isalpha(buff[i])
+				|| buff[i] == '/' || buff[i] == '.'))
+		i++;
+	buff[i] = 0;
 }
