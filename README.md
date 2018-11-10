@@ -5,7 +5,7 @@
 
 ## **Downloading project:**
 ![Downloading project:](https://github.com/mshkliai/ft_ls/raw/master/screenshots/download.png)
-## **Installing project:**
+## **Installation project:**
 ![Installing project:](https://github.com/mshkliai/ft_ls/raw/master/screenshots/installing.png)
 ## **Output:**
 ![Output:](https://github.com/mshkliai/ft_ls/raw/master/screenshots/output.png)
